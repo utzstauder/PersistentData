@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SaveData : GenericJsonClass<SaveData>
+public class SaveData : GenericJsonClass<SaveData, UnityFileStorage>
 {
     public static string SaveDataPath => Application.persistentDataPath + "/data." + Extension;
 
