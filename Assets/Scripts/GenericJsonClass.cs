@@ -26,11 +26,15 @@ public abstract class GenericJsonClass<T, S>
     {
         string dataAsJson = JsonUtility.ToJson(this);
 
+        Debug.LogFormat("{0}: saving...", Storage.Type);
+
         Storage.Store(filePath, dataAsJson);
     }
 
     public static T Load(string filePath)
     {
+        Debug.LogFormat("{0}: loading...", Storage.Type);
+
         string dataAsJson = Storage.Retrieve(filePath);
 
         T data = JsonUtility.FromJson<T>(dataAsJson);

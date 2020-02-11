@@ -34,4 +34,11 @@ public class SaveDataHelper : MonoBehaviour
         Debug.Log("Loading...");
         data = SaveData.Load();
     }
+
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+    private void OnGUI()
+    {
+        GUILayout.Box($"Name: {data.name}\nPlay Time:{data.playtime}");
+    }
+#endif
 }
